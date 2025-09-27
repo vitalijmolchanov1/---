@@ -1,0 +1,395 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Молчанов Виталий | ООО "УДРБРОКК" - Организация перевозок по России</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --dark-bg: #1a1a2e;
+            --darker-bg: #16213e;
+            --accent: #6cc3d5; /* Пастельный бирюзовый */
+            --accent-light: #8de0f2;
+            --text-light: #f0f0f0;
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Шапка и навигация */
+        header {
+            background: linear-gradient(to right, var(--darker-bg), var(--dark-bg));
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Герой секция */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            background: linear-gradient(rgba(22, 33, 62, 0.8), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-gray);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--darker-bg);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-light);
+        }
+
+        /* Секции */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--accent);
+        }
+
+        /* О компании */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            margin-b
+
+ottom: 1rem;
+            color: var(--accent-light);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* Услуги */
+        #services {
+            background-color: var(--darker-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .service-card h3 {
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Контакты */
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 5px;
+            min-width: 250px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 1rem;
+        }
+
+        .contact-details a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        /* Футер */
+        footer {
+            background-color: var(--darker-bg);
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность */
+        max-width: 768px {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>УДРБРОКК</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">О компании</a></li>
+                    <li><a href="#services">Наши возможности</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container">
+            <h2>Молчанов Виталий Дмитриевич</h2>
+            <p>ООО "УДРБРОКК" - профессиональная организация грузоперевозок по всем 89 регионам России. Гарантируем надежность и постоянство процесса перевозок.</p>
+            <a href="#contact" class="cta-button">Связаться со мной</a>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">О компании</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>ООО "УДРБРОКК" - ваш надежный партнер в грузоперевозках</h3>
+                    <p>Наша компания специализируется на организации перевозок по всей территории Российской Федерации. Мы располагаем собственным автопарком современной техники различной грузоподъемности и специализации.</
+
+p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-truck-moving"></i>
+                            <h4>Собственный автопарк</h4>
+                            <p>7 единиц техники в собственности</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h4>По всей России</h4>
+                            <p>Работаем во всех 89 регионах РФ</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Надежность</h4>
+                            <p>Гарантируем регулярность и постоянство</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Наши возможности</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Типы кузовов</h3>
+                    <ul>
+                        <li>Тенты</li>
+                        <li>Тралы</li>
+                        <li>Рефрежераторы</li>
+                        <li>Самосвалы</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Грузоподъемность</h3>
+                    <p>Техника грузоподъемностью от 5 тонн, что позволяет нам работать с различными типами грузов.</p>
+                </div>
+                <div class="service-card">
+                    <h3>География работы</h3>
+                    <p>Организуем перевозки по всем 89 регионам России. Обеспечиваем логистику любой сложности.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Свяжитесь со мной для обсуждения ваших задач по грузоперевозкам</p>
+            
+            <div class="contact-methods">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-details">
+                        <h3>Телефон</h3>
+                        <a href="tel:+79223437277">+7 (922) 343-72-77</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:vitalij.molchanov1@gmail.com">vitalij.molchanov1@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>ООО "УДРБРОКК" - Организация перевозок по России</p>
+            <p>© 2024 Все права защищены</p>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
